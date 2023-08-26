@@ -66,3 +66,18 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 {{- end }}
+
+
+
+{{- if .Values.flexVolume.enabled }}
+- name: {{ .Values.flexVolume.name }}
+  flexVolume:
+    driver: {{ .Values.flexVolume.driver }}
+    fsType: {{ .Values.flexVolume.fsType }}
+    options:
+      mountOptions: {{ .Values.flexVolume.options.mountOptions | quote }}
+      networkPath: {{ .Values.flexVolume.options.networkPath | quote }}
+    secretRef:
+      name: {{ .Values.flexVolume.secretRef.name }}
+{{- end}}
+
