@@ -65,10 +65,6 @@ Volumes included by the controller.
   {{- end }}
 {{- end }}
 {{- end }}
-{{- end }}
-
-
-
 {{- if .Values.flexVolume.enabled }}
 - name: {{ .Values.flexVolume.name }}
   flexVolume:
@@ -79,5 +75,5 @@ Volumes included by the controller.
       networkPath: {{ .Values.flexVolume.options.networkPath | quote }}
     secretRef:
       name: {{ .Values.flexVolume.secretRef.name }}
-{{- end}}
-
+{{- end }}
+{{- end }}
